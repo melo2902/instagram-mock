@@ -137,7 +137,7 @@
                                     <outletCollection property="gestureRecognizers" destination="z7l-MM-jKK" appends="YES" id="Weo-JC-5rF"/>
                                 </connections>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write a message.." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-Yb-sFH">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption here.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-Yb-sFH">
                                 <rect key="frame" x="159" y="78" width="235" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -151,7 +151,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Take a photo" image="insta_camera_btn"/>
                                 <connections>
-                                    <segue destination="AZ8-dB-hbl" kind="presentation" id="aRy-ia-mMe"/>
+                                    <action selector="choosePhoto:" destination="jW4-6E-D1g" eventType="touchUpInside" id="WxU-Au-eSG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -172,27 +172,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="caption" destination="d4i-Yb-sFH" id="JVW-Rr-s2J"/>
+                        <outlet property="imageView" destination="eLI-Mw-m64" id="O5y-7B-hhz"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2347.826086956522" y="803.57142857142856"/>
-        </scene>
-        <!--Photo Map View Controller-->
-        <scene sceneID="vU4-e6-brK">
-            <objects>
-                <viewController id="AZ8-dB-hbl" customClass="PhotoMapViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eGH-bK-yNW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Sm4-f8-tIg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" systemColor="systemGrayColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="fNh-3t-BSO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MYz-ST-gbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2348" y="1495"/>
         </scene>
         <!--Profile-->
         <scene sceneID="gQ0-05-HPb">
@@ -291,9 +275,6 @@
         <image name="profile_tab" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -1,5 +1,5 @@
 //
-//  PhotoMapViewController.h
+//  PostCell.h
 //  instagram-mock
 //
 //  Created by mwen on 7/6/21.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PhotoMapViewController : UIViewController
+@interface PostCell : UITableViewCell
 
 @end
 
