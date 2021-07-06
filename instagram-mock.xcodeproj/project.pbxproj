@@ -17,6 +17,10 @@
 		58EE53DE2694E78E006C5BC9 /* instagram_mockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53DD2694E78E006C5BC9 /* instagram_mockTests.m */; };
 		58EE53E92694E78E006C5BC9 /* instagram_mockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53E82694E78E006C5BC9 /* instagram_mockUITests.m */; };
 		58EE53F92694EE6D006C5BC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53F82694EE6D006C5BC9 /* LoginViewController.m */; };
+		58EE53FC2694F0E0006C5BC9 /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53FB2694F0E0006C5BC9 /* HomeFeedViewController.m */; };
+		58EE53FF2694F5AF006C5BC9 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53FE2694F5AF006C5BC9 /* PhotoMapViewController.m */; };
+		58EE54062694FC84006C5BC9 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE54052694FC84006C5BC9 /* PostViewController.m */; };
+		58EE540A2694FF4B006C5BC9 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE54092694FF4B006C5BC9 /* Post.m */; };
 		D366DEE51AEF7E83AF38AC3F /* libPods-instagram-mock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00927DEC7297CCF1C3EFC85F /* libPods-instagram-mock.a */; };
 		E9722A80979726647D196C32 /* libPods-instagram-mockTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F204DD7BE2359BE5FDB46E5 /* libPods-instagram-mockTests.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +65,14 @@
 		58EE53EA2694E78E006C5BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58EE53F72694EE6D006C5BC9 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		58EE53F82694EE6D006C5BC9 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		58EE53FA2694F0E0006C5BC9 /* HomeFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
+		58EE53FB2694F0E0006C5BC9 /* HomeFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
+		58EE53FD2694F5AF006C5BC9 /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
+		58EE53FE2694F5AF006C5BC9 /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
+		58EE54042694FC84006C5BC9 /* PostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		58EE54052694FC84006C5BC9 /* PostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		58EE54082694FF4B006C5BC9 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		58EE54092694FF4B006C5BC9 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		7D93437910F7CBFABEE3F518 /* Pods-instagram-mock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-mock.release.xcconfig"; path = "Target Support Files/Pods-instagram-mock/Pods-instagram-mock.release.xcconfig"; sourceTree = "<group>"; };
 		C14ED15FFAA1FA8C6EA69D84 /* Pods-instagram-mockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-mockTests.release.xcconfig"; path = "Target Support Files/Pods-instagram-mockTests/Pods-instagram-mockTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD196D931A40093123E80196 /* Pods-instagram-mockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-mockTests.debug.xcconfig"; path = "Target Support Files/Pods-instagram-mockTests/Pods-instagram-mockTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +146,8 @@
 		58EE53C02694E78C006C5BC9 /* instagram-mock */ = {
 			isa = PBXGroup;
 			children = (
+				58EE54072694FCE6006C5BC9 /* Views */,
+				58EE54002694FA7E006C5BC9 /* Models */,
 				58EE53F62694EE14006C5BC9 /* View Controller */,
 				58EE53C12694E78C006C5BC9 /* AppDelegate.h */,
 				58EE53C22694E78C006C5BC9 /* AppDelegate.m */,
@@ -171,8 +185,30 @@
 			children = (
 				58EE53F72694EE6D006C5BC9 /* LoginViewController.h */,
 				58EE53F82694EE6D006C5BC9 /* LoginViewController.m */,
+				58EE53FA2694F0E0006C5BC9 /* HomeFeedViewController.h */,
+				58EE53FB2694F0E0006C5BC9 /* HomeFeedViewController.m */,
+				58EE53FD2694F5AF006C5BC9 /* PhotoMapViewController.h */,
+				58EE53FE2694F5AF006C5BC9 /* PhotoMapViewController.m */,
+				58EE54042694FC84006C5BC9 /* PostViewController.h */,
+				58EE54052694FC84006C5BC9 /* PostViewController.m */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		58EE54002694FA7E006C5BC9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				58EE54082694FF4B006C5BC9 /* Post.h */,
+				58EE54092694FF4B006C5BC9 /* Post.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		58EE54072694FCE6006C5BC9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B18FE9466F89039D35FB4B98 /* Frameworks */ = {
@@ -422,10 +458,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58EE53FF2694F5AF006C5BC9 /* PhotoMapViewController.m in Sources */,
+				58EE53FC2694F0E0006C5BC9 /* HomeFeedViewController.m in Sources */,
 				58EE53F92694EE6D006C5BC9 /* LoginViewController.m in Sources */,
 				58EE53C32694E78C006C5BC9 /* AppDelegate.m in Sources */,
+				58EE54062694FC84006C5BC9 /* PostViewController.m in Sources */,
 				58EE53D42694E78E006C5BC9 /* main.m in Sources */,
 				58EE53C62694E78C006C5BC9 /* SceneDelegate.m in Sources */,
+				58EE540A2694FF4B006C5BC9 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
