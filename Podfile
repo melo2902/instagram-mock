@@ -7,6 +7,7 @@ target 'instagram-mock' do
 
   # Pods for instagram-mock
   pod 'Parse'
+  pod 'DateTools'
 
   target 'instagram-mockTests' do
     inherit! :search_paths

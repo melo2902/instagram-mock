@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F00F93B2C1F0D687B9ECD99 /* libPods-instagram-mock-instagram-mockUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E662AEB0210EFBF644AC8263 /* libPods-instagram-mock-instagram-mockUITests.a */; };
+		5862ED402696451A00BE2EA4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED3F2696451A00BE2EA4 /* DetailViewController.m */; };
 		58EE53C32694E78C006C5BC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53C22694E78C006C5BC9 /* AppDelegate.m */; };
 		58EE53C62694E78C006C5BC9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53C52694E78C006C5BC9 /* SceneDelegate.m */; };
 		58EE53CC2694E78C006C5BC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EE53CA2694E78C006C5BC9 /* Main.storyboard */; };
@@ -47,6 +48,8 @@
 		0F204DD7BE2359BE5FDB46E5 /* libPods-instagram-mockTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-instagram-mockTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B000939FDE06045F8C00D1C /* Pods-instagram-mock-instagram-mockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-mock-instagram-mockUITests.release.xcconfig"; path = "Target Support Files/Pods-instagram-mock-instagram-mockUITests/Pods-instagram-mock-instagram-mockUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5071AF15E1D6B784CA3E7C13 /* Pods-instagram-mock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-mock.debug.xcconfig"; path = "Target Support Files/Pods-instagram-mock/Pods-instagram-mock.debug.xcconfig"; sourceTree = "<group>"; };
+		5862ED3E2696451A00BE2EA4 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5862ED3F2696451A00BE2EA4 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		58EE53BE2694E78C006C5BC9 /* instagram-mock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "instagram-mock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58EE53C12694E78C006C5BC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		58EE53C22694E78C006C5BC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				58EE53FB2694F0E0006C5BC9 /* HomeFeedViewController.m */,
 				58EE54042694FC84006C5BC9 /* PostViewController.h */,
 				58EE54052694FC84006C5BC9 /* PostViewController.m */,
+				5862ED3E2696451A00BE2EA4 /* DetailViewController.h */,
+				5862ED3F2696451A00BE2EA4 /* DetailViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 			files = (
 				58EE53FC2694F0E0006C5BC9 /* HomeFeedViewController.m in Sources */,
 				58EE53F92694EE6D006C5BC9 /* LoginViewController.m in Sources */,
+				5862ED402696451A00BE2EA4 /* DetailViewController.m in Sources */,
 				58EE53C32694E78C006C5BC9 /* AppDelegate.m in Sources */,
 				58EE540D269514C2006C5BC9 /* PostCell.m in Sources */,
 				58EE54062694FC84006C5BC9 /* PostViewController.m in Sources */,
