@@ -10,6 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UIImageView *postPicture;
+@property (weak, nonatomic) IBOutlet UILabel *caption;
 
 @end
 

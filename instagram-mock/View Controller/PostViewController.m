@@ -10,7 +10,7 @@
 #import "Post.h"
 
 @interface PostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *caption;
+@property (weak, nonatomic) IBOutlet UITextField *caption; // Change variable name to captionField
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
@@ -27,8 +27,14 @@
 }
 
 - (IBAction)sharePost:(id)sender {
-    
-//    [postUserImage self.caption];
+//    Post *newPost = [[Post alloc] initWithClassName:@"Post"];
+    [Post postUserImage:self.imageView.image withCaption:self.caption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Posting failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"Posted successfully");
+        }
+    }];
     
     [self dismissViewControllerAnimated:true completion:nil];
 }
@@ -57,8 +63,8 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
 //    Figure out how to set up the CGSize
-//    self.imageView = [self resizeImage:editedImage withSize: CGSize(width: 10, height: 10)];
-    self.imageView.image = editedImage;
+    self.imageView.image = [self resizeImage:editedImage withSize: CGSizeMake(300, 300)];
+//    self.imageView.image = editedImage;
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
