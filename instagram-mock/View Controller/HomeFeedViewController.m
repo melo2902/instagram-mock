@@ -13,6 +13,7 @@
 #import "Post.h"
 #import "DetailViewController.h"
 #import "DateTools.h"
+#import "SceneDelegate.h"
 
 @interface HomeFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -64,13 +65,11 @@
         // PFUser.current() will now be nil
     }];
     
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
+    SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    appDelegate.window.rootViewController = loginViewController;
-    
-//    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    sceneDelegate.window.rootViewController = loginViewController;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

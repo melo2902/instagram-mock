@@ -17,16 +17,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-
-            configuration.applicationId = @"S4f4oDNohgUdTNVpfcUOTJiS9iLN57ZwlzzLJpaC";
-            configuration.clientKey = @"m015ShhtQj45L58LeVt2HKeooYCD7e19uKc4oP7H";
-            configuration.server = @"https://parseapi.back4app.com";
-        }];
-
-        [Parse initializeWithConfiguration:config];
-    
-//    Need to do 3
+//    ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+//
+//            configuration.applicationId = @"S4f4oDNohgUdTNVpfcUOTJiS9iLN57ZwlzzLJpaC";
+//            configuration.clientKey = @"m015ShhtQj45L58LeVt2HKeooYCD7e19uKc4oP7H";
+//            configuration.server = @"https://parseapi.back4app.com";
+//        }];
+//
+//        [Parse initializeWithConfiguration:config];
+//
+////    Need to do 3
 //    if (PFUser.currentUser) {
 //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //
