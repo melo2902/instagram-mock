@@ -8,6 +8,7 @@
 #import "PostViewController.h"
 #import <Parse/Parse.h>
 #import "Post.h"
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
 
 @interface PostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *captionField;
@@ -20,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.captionField.placeholder = @"What are your thoughts?";
+    self.captionField.placeholderColor = [UIColor lightGrayColor];
     
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;

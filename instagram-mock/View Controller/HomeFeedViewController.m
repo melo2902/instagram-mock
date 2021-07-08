@@ -42,7 +42,6 @@
 - (void)getPosts {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-//    [query whereKey:@"likesCount" greaterThan:@100];
     [query includeKey:@"author"];
     query.limit = 20;
 

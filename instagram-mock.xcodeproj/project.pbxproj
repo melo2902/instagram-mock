@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0F00F93B2C1F0D687B9ECD99 /* libPods-instagram-mock-instagram-mockUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E662AEB0210EFBF644AC8263 /* libPods-instagram-mock-instagram-mockUITests.a */; };
 		5862ED402696451A00BE2EA4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED3F2696451A00BE2EA4 /* DetailViewController.m */; };
+		5862ED4B2697886D00BE2EA4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED4A2697886D00BE2EA4 /* ProfileViewController.m */; };
+		5862ED5126978AE500BE2EA4 /* CollectionPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED5026978AE500BE2EA4 /* CollectionPostCell.m */; };
 		58EE53C32694E78C006C5BC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53C22694E78C006C5BC9 /* AppDelegate.m */; };
 		58EE53C62694E78C006C5BC9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53C52694E78C006C5BC9 /* SceneDelegate.m */; };
 		58EE53CC2694E78C006C5BC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EE53CA2694E78C006C5BC9 /* Main.storyboard */; };
@@ -50,6 +52,10 @@
 		5071AF15E1D6B784CA3E7C13 /* Pods-instagram-mock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-mock.debug.xcconfig"; path = "Target Support Files/Pods-instagram-mock/Pods-instagram-mock.debug.xcconfig"; sourceTree = "<group>"; };
 		5862ED3E2696451A00BE2EA4 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		5862ED3F2696451A00BE2EA4 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		5862ED492697886D00BE2EA4 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		5862ED4A2697886D00BE2EA4 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		5862ED4F26978AE500BE2EA4 /* CollectionPostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionPostCell.h; sourceTree = "<group>"; };
+		5862ED5026978AE500BE2EA4 /* CollectionPostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionPostCell.m; sourceTree = "<group>"; };
 		58EE53BE2694E78C006C5BC9 /* instagram-mock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "instagram-mock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58EE53C12694E78C006C5BC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		58EE53C22694E78C006C5BC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -194,6 +200,8 @@
 				58EE54052694FC84006C5BC9 /* PostViewController.m */,
 				5862ED3E2696451A00BE2EA4 /* DetailViewController.h */,
 				5862ED3F2696451A00BE2EA4 /* DetailViewController.m */,
+				5862ED492697886D00BE2EA4 /* ProfileViewController.h */,
+				5862ED4A2697886D00BE2EA4 /* ProfileViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -212,6 +220,8 @@
 			children = (
 				58EE540B269514C2006C5BC9 /* PostCell.h */,
 				58EE540C269514C2006C5BC9 /* PostCell.m */,
+				5862ED4F26978AE500BE2EA4 /* CollectionPostCell.h */,
+				5862ED5026978AE500BE2EA4 /* CollectionPostCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,8 +475,10 @@
 			files = (
 				58EE53FC2694F0E0006C5BC9 /* HomeFeedViewController.m in Sources */,
 				58EE53F92694EE6D006C5BC9 /* LoginViewController.m in Sources */,
+				5862ED5126978AE500BE2EA4 /* CollectionPostCell.m in Sources */,
 				5862ED402696451A00BE2EA4 /* DetailViewController.m in Sources */,
 				58EE53C32694E78C006C5BC9 /* AppDelegate.m in Sources */,
+				5862ED4B2697886D00BE2EA4 /* ProfileViewController.m in Sources */,
 				58EE540D269514C2006C5BC9 /* PostCell.m in Sources */,
 				58EE54062694FC84006C5BC9 /* PostViewController.m in Sources */,
 				58EE53D42694E78E006C5BC9 /* main.m in Sources */,

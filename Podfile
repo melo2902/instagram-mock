@@ -8,6 +8,7 @@ target 'instagram-mock' do
   # Pods for instagram-mock
   pod 'Parse'
   pod 'DateTools'
+  pod 'UITextView+Placeholder'
 
   target 'instagram-mockTests' do
     inherit! :search_paths
