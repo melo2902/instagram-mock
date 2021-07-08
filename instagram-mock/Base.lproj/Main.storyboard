@@ -100,7 +100,7 @@
                                                         <constraint firstAttribute="width" secondItem="wsq-Gl-uSQ" secondAttribute="height" multiplier="1.91:1" id="erE-yc-cgK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yd-o1-7d9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yd-o1-7d9">
                                                     <rect key="frame" x="8" y="261" width="398" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -294,7 +294,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7SI-qf-mNn">
-                                <rect key="frame" x="0.0" y="206" width="414" height="636"/>
+                                <rect key="frame" x="0.0" y="231" width="414" height="611"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ba9-gT-9hJ">
                                     <size key="itemSize" width="203" height="187"/>
@@ -323,6 +323,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EF-i8-Eql">
+                                <rect key="frame" x="175" y="132.5" width="43" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="B3H-Bf-06o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehq-kY-zd9">
                                 <rect key="frame" x="162" y="101" width="69.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -338,28 +347,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TdU-sh-OT6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="TdU-sh-OT6">
                                 <rect key="frame" x="20" y="76" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="FHS-8r-Kj7"/>
                                     <constraint firstAttribute="height" constant="90" id="Ff6-97-uJI"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EF-i8-Eql">
-                                <rect key="frame" x="175" y="132.5" width="43" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="B3H-Bf-06o"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaO-wR-OQ3">
+                                <rect key="frame" x="92" y="152" width="18" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addPFP:" destination="vev-X7-hyN" eventType="touchUpInside" id="Shj-HX-H9w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FmY-Dk-l1q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7SI-qf-mNn" firstAttribute="trailing" secondItem="FmY-Dk-l1q" secondAttribute="trailing" id="Atb-rR-BJJ"/>
-                            <constraint firstItem="7SI-qf-mNn" firstAttribute="top" secondItem="FmY-Dk-l1q" secondAttribute="top" constant="150" id="Bn0-vx-ISV"/>
+                            <constraint firstItem="7SI-qf-mNn" firstAttribute="top" secondItem="FmY-Dk-l1q" secondAttribute="top" constant="175" id="Bn0-vx-ISV"/>
                             <constraint firstItem="Lxl-2p-7bu" firstAttribute="leading" secondItem="TdU-sh-OT6" secondAttribute="leading" id="Cdh-Dc-1HK"/>
                             <constraint firstItem="8EF-i8-Eql" firstAttribute="leading" secondItem="TdU-sh-OT6" secondAttribute="trailing" constant="65" id="HNZ-PM-YWq"/>
                             <constraint firstAttribute="bottom" secondItem="7SI-qf-mNn" secondAttribute="bottom" id="HaK-1f-lCJ"/>
@@ -377,6 +385,7 @@
                     <connections>
                         <outlet property="collectionView" destination="7SI-qf-mNn" id="YiO-08-XuP"/>
                         <outlet property="numberPostsLabel" destination="Ehq-kY-zd9" id="cuS-tb-XVy"/>
+                        <outlet property="profilePictureView" destination="TdU-sh-OT6" id="DyA-Dh-liK"/>
                         <outlet property="username" destination="Lxl-2p-7bu" id="v6p-56-Zbq"/>
                     </connections>
                 </viewController>
@@ -462,6 +471,7 @@
     <resources>
         <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="profile_tab" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

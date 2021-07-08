@@ -6,6 +6,7 @@
 //
 
 #import "Post.h"
+//#import "InstaUser.h"
 
 @implementation Post
 @dynamic postID;
@@ -25,6 +26,7 @@
     Post *newPost = [[Post alloc] initWithClassName:@"Post"];
 //    Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
+//    newPost.author = InstaUser.currentUser;
     newPost.author = PFUser.currentUser;
     newPost.caption = caption;
     newPost.likeCount = @(0);

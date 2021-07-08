@@ -7,6 +7,7 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+//#import "InstaUser.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -25,6 +26,8 @@
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     
+//    [InstaUser logInWithUsernameInBackground:username password:password block:^(InstaUser * user, NSError *  error) {
+//    testing this later
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
@@ -39,6 +42,8 @@
 
 - (IBAction)onSignUp:(id)sender {
     // initialize a user object
+    
+//    InstaUser *newUser = [InstaUser user];
     PFUser *newUser = [PFUser user];
     
     // set user properties

@@ -43,7 +43,8 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
-    query.limit = 20;
+    [query orderByDescending:@"createdAt"];
+//    query.limit = 20;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -79,6 +80,7 @@
     NSDate *dateString = post.createdAt;
     cell.creationField.text = dateString.shortTimeAgoSinceNow;
     
+//    See what other stuff I have to switch loll
     PFUser *user = post[@"author"];
     
     if (user != nil) {
