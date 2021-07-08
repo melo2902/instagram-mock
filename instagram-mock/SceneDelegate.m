@@ -32,7 +32,7 @@
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
-        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeFeedViewController"];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"UITabBarController"];
     }
 }
 
