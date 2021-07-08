@@ -10,7 +10,7 @@
 #import "Post.h"
 
 @interface PostViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *caption; // Change variable name to captionField
+@property (weak, nonatomic) IBOutlet UITextView *captionField;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
@@ -43,7 +43,7 @@
 
 - (IBAction)sharePost:(id)sender {
 //    Post *newPost = [[Post alloc] initWithClassName:@"Post"];
-    [Post postUserImage:self.imageView.image withCaption:self.caption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Post postUserImage:self.imageView.image withCaption:self.captionField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Posting failed: %@", error.localizedDescription);
         } else {
@@ -92,6 +92,4 @@
 }
 */
 
-- (IBAction)caption:(id)sender {
-}
 @end

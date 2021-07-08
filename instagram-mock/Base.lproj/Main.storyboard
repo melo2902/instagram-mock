@@ -233,26 +233,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="insta_camera_btn" translatesAutoresizingMaskIntoConstraints="NO" id="eLI-Mw-m64">
-                                <rect key="frame" x="20" y="78" width="126" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insta_camera_btn" translatesAutoresizingMaskIntoConstraints="NO" id="eLI-Mw-m64">
+                                <rect key="frame" x="8" y="77" width="126" height="127"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="CCS-up-Scw"/>
+                                    <constraint firstAttribute="height" constant="127" id="QJM-Cl-fut"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="z7l-MM-jKK" appends="YES" id="Weo-JC-5rF"/>
                                 </connections>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a caption here.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-Yb-sFH">
-                                <rect key="frame" x="159" y="78" width="235" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yLD-RG-2kB">
+                                <rect key="frame" x="142" y="77" width="264" height="127"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="caption:" destination="WiY-O0-a3c" eventType="editingDidEnd" id="px6-L3-hZu"/>
-                                </connections>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b3o-6y-UDv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yLD-RG-2kB" firstAttribute="top" secondItem="b3o-6y-UDv" secondAttribute="top" constant="21" id="JSO-I8-7AQ"/>
+                            <constraint firstItem="yLD-RG-2kB" firstAttribute="bottom" secondItem="eLI-Mw-m64" secondAttribute="bottom" id="SFt-Nj-zZ3"/>
+                            <constraint firstItem="yLD-RG-2kB" firstAttribute="leading" secondItem="eLI-Mw-m64" secondAttribute="trailing" constant="8" id="VHj-pk-E9n"/>
+                            <constraint firstItem="yLD-RG-2kB" firstAttribute="top" secondItem="eLI-Mw-m64" secondAttribute="top" id="WR7-if-Soc"/>
+                            <constraint firstItem="b3o-6y-UDv" firstAttribute="trailing" secondItem="yLD-RG-2kB" secondAttribute="trailing" constant="8" id="iRc-Ik-2Ug"/>
+                            <constraint firstItem="eLI-Mw-m64" firstAttribute="leading" secondItem="b3o-6y-UDv" secondAttribute="leading" constant="8" id="l26-PZ-1qE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PQF-Ho-9gi">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Mn8-1R-o88">
@@ -267,11 +277,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="caption" destination="d4i-Yb-sFH" id="JVW-Rr-s2J"/>
+                        <outlet property="captionField" destination="yLD-RG-2kB" id="IAl-FF-bkj"/>
                         <outlet property="imageView" destination="eLI-Mw-m64" id="O5y-7B-hhz"/>
                     </connections>
                 </viewController>
-                <exit id="WiY-O0-a3c" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPP-Vz-ID6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="z7l-MM-jKK"/>
             </objects>
@@ -395,6 +404,9 @@
         <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
