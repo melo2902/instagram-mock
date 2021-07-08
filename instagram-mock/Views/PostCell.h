@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *captionField;
 @property (weak, nonatomic) IBOutlet UILabel *creationField;
 @property (weak, nonatomic) IBOutlet UIImageView *postPicture;
-
+@property (weak, nonatomic) IBOutlet UIImageView *pfpView;
 @end
 
 NS_ASSUME_NONNULL_END

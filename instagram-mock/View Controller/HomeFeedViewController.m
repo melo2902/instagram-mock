@@ -101,6 +101,16 @@
         }
     }];
     
+    if (user[@"pfp"]){
+        PFFileObject *pfp = user[@"pfp"];
+        [pfp getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+            if (!error) {
+                cell.pfpView.image = [UIImage imageWithData:imageData];
+            }
+        }];
+    }
+   
+    
     return cell;
 }
 
