@@ -32,7 +32,7 @@
     self.tableView.delegate = self;
     
     [self getPosts];
-   
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(getPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
@@ -44,13 +44,13 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
     [query orderByDescending:@"createdAt"];
-//    query.limit = 20;
-
+    //    query.limit = 20;
+    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = posts;
-           
+            
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -80,7 +80,6 @@
     NSDate *dateString = post.createdAt;
     cell.creationField.text = dateString.shortTimeAgoSinceNow;
     
-//    See what other stuff I have to switch loll
     PFUser *user = post[@"author"];
     
     if (user != nil) {
@@ -105,11 +104,14 @@
         PFFileObject *pfp = user[@"pfp"];
         [pfp getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
             if (!error) {
-                cell.pfpView.image = [UIImage imageWithData:imageData];
+                UIImage *originalImage = [UIImage imageWithData:imageData];
+                cell.pfpView.image = originalImage;
+                cell.pfpView.layer.cornerRadius = cell.pfpView.frame.size.width / 2;
+                cell.pfpView.clipsToBounds = true;
             }
         }];
     }
-   
+    
     
     return cell;
 }
@@ -125,13 +127,12 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqual:@"showDetailsSegue"]) {
-     PostCell *tappedCell = sender;
-       NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-       Post *post = self.posts[indexPath.row];
-       
-        NSLog(@"%@", post);
-       DetailViewController *detailsViewController = [segue destinationViewController];
-       detailsViewController.post = post;
+        PostCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        
+        DetailViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.post = post;
     }
 }
 

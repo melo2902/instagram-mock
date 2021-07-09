@@ -43,7 +43,6 @@
 - (IBAction)onSignUp:(id)sender {
     // initialize a user object
     
-//    InstaUser *newUser = [InstaUser user];
     PFUser *newUser = [PFUser user];
     
     // set user properties

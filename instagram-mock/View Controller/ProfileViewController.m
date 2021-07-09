@@ -9,17 +9,23 @@
 #import "Parse/Parse.h"
 #import "CollectionPostCell.h"
 #import "Post.h"
-//#import "InstaUser.h"
+#import "PostCell.h"
+#import "DetailViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *numberPostsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePictureView;
 @property (strong, nonatomic) NSArray *ownPostsArray;
 @end
 
 @implementation ProfileViewController
+
+- (void)viewWillAppear {
+    self.descriptionLabel.text = PFUser.currentUser[@"description"];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,16 +35,20 @@
     
     [self getPosts];
     
-    NSLog(@"%@", PFUser.currentUser[@"pfp"]);
     if (PFUser.currentUser[@"pfp"]) {
         PFFileObject *pfp = PFUser.currentUser[@"pfp"];
         
         [pfp getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
             if (!error) {
-                self.profilePictureView.image = [UIImage imageWithData:imageData];
+                UIImage *originalImage = [UIImage imageWithData:imageData];
+                self.profilePictureView.image = originalImage;
+                self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.width / 2;
+                self.profilePictureView.clipsToBounds = true;
             }
         }];
     }
+    
+    self.descriptionLabel.text = PFUser.currentUser[@"description"];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     
@@ -55,9 +65,10 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     // to make this generalizable, can't use PFUser.currentUser (will pass in the metric)
+    [query includeKey:@"author.pfp"];
     [query whereKey:@"author" equalTo:PFUser.currentUser];
     [query orderByDescending:@"createdAt"];
-//    query.limit = 20;
+    //    query.limit = 20;
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -76,7 +87,7 @@
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-
+    
     // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -85,7 +96,7 @@
         NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-
+    
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
@@ -94,10 +105,9 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-
+    
     self.profilePictureView.image = [self resizeImage:editedImage withSize: CGSizeMake(5, 5)];
     PFUser.currentUser[@"pfp"] = [self getPFFileFromImage:self.profilePictureView.image];
-//    InstaUser.currentUser.pfp = [self getPFFileFromImage:self.profilePictureView.image];
     [PFUser.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Did not save correctly");
@@ -109,7 +119,7 @@
 }
 
 - (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
+    
     // check if image is not nil
     if (!image) {
         return nil;
@@ -157,14 +167,21 @@
     return self.ownPostsArray.count;
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqual:@"profileShowDetailsSegue"]) {
+        CollectionPostCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Post *post = self.ownPostsArray[indexPath.row];
+//        NSLog(@"%@")
+        
+        DetailViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.post = post;
+    }
+}
 
 @end

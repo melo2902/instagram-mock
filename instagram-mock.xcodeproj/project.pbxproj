@@ -11,7 +11,7 @@
 		5862ED402696451A00BE2EA4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED3F2696451A00BE2EA4 /* DetailViewController.m */; };
 		5862ED4B2697886D00BE2EA4 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED4A2697886D00BE2EA4 /* ProfileViewController.m */; };
 		5862ED5126978AE500BE2EA4 /* CollectionPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED5026978AE500BE2EA4 /* CollectionPostCell.m */; };
-		5862ED5B2697940800BE2EA4 /* InstaUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED5A2697940800BE2EA4 /* InstaUser.m */; };
+		5862ED5E2698B65500BE2EA4 /* EditSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5862ED5D2698B65500BE2EA4 /* EditSettingsViewController.m */; };
 		58EE53C32694E78C006C5BC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53C22694E78C006C5BC9 /* AppDelegate.m */; };
 		58EE53C62694E78C006C5BC9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EE53C52694E78C006C5BC9 /* SceneDelegate.m */; };
 		58EE53CC2694E78C006C5BC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EE53CA2694E78C006C5BC9 /* Main.storyboard */; };
@@ -57,8 +57,8 @@
 		5862ED4A2697886D00BE2EA4 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		5862ED4F26978AE500BE2EA4 /* CollectionPostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionPostCell.h; sourceTree = "<group>"; };
 		5862ED5026978AE500BE2EA4 /* CollectionPostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionPostCell.m; sourceTree = "<group>"; };
-		5862ED592697940800BE2EA4 /* InstaUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstaUser.h; sourceTree = "<group>"; };
-		5862ED5A2697940800BE2EA4 /* InstaUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaUser.m; sourceTree = "<group>"; };
+		5862ED5C2698B65500BE2EA4 /* EditSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditSettingsViewController.h; sourceTree = "<group>"; };
+		5862ED5D2698B65500BE2EA4 /* EditSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditSettingsViewController.m; sourceTree = "<group>"; };
 		58EE53BE2694E78C006C5BC9 /* instagram-mock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "instagram-mock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58EE53C12694E78C006C5BC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		58EE53C22694E78C006C5BC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -205,6 +205,8 @@
 				5862ED3F2696451A00BE2EA4 /* DetailViewController.m */,
 				5862ED492697886D00BE2EA4 /* ProfileViewController.h */,
 				5862ED4A2697886D00BE2EA4 /* ProfileViewController.m */,
+				5862ED5C2698B65500BE2EA4 /* EditSettingsViewController.h */,
+				5862ED5D2698B65500BE2EA4 /* EditSettingsViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -214,8 +216,6 @@
 			children = (
 				58EE54082694FF4B006C5BC9 /* Post.h */,
 				58EE54092694FF4B006C5BC9 /* Post.m */,
-				5862ED592697940800BE2EA4 /* InstaUser.h */,
-				5862ED5A2697940800BE2EA4 /* InstaUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -483,10 +483,10 @@
 				5862ED5126978AE500BE2EA4 /* CollectionPostCell.m in Sources */,
 				5862ED402696451A00BE2EA4 /* DetailViewController.m in Sources */,
 				58EE53C32694E78C006C5BC9 /* AppDelegate.m in Sources */,
+				5862ED5E2698B65500BE2EA4 /* EditSettingsViewController.m in Sources */,
 				5862ED4B2697886D00BE2EA4 /* ProfileViewController.m in Sources */,
 				58EE540D269514C2006C5BC9 /* PostCell.m in Sources */,
 				58EE54062694FC84006C5BC9 /* PostViewController.m in Sources */,
-				5862ED5B2697940800BE2EA4 /* InstaUser.m in Sources */,
 				58EE53D42694E78E006C5BC9 /* main.m in Sources */,
 				58EE53C62694E78C006C5BC9 /* SceneDelegate.m in Sources */,
 				58EE540A2694FF4B006C5BC9 /* Post.m in Sources */,
