@@ -49,7 +49,17 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Log In View: https://i.imgur.com/PzRQRSE.gif
+![](https://i.imgur.com/PzRQRSE.gif)
+
+Editing Profile: https://i.imgur.com/lvVDra1.gif
+![](https://i.imgur.com/lvVDra1.gif)
+
+Posting a photo: https://i.imgur.com/FZx0Jql.gif
+![](https://i.imgur.com/FZx0Jql.gif)
+
+Show detailed view:
+
 
 GIF created with [Kap](https://getkap.co/).
 
@@ -61,7 +71,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+It was slow progress trying to implement the delegate methods, since I haven't individually done so before. I also had a learning curve when working with Parse and how the data is structured.
 
 ## License
 
