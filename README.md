@@ -50,16 +50,18 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 Log In View: https://i.imgur.com/PzRQRSE.gif
+
 ![](https://i.imgur.com/PzRQRSE.gif)
 
 Editing Profile: https://i.imgur.com/lvVDra1.gif
+
 ![](https://i.imgur.com/lvVDra1.gif)
 
 Posting a photo: https://i.imgur.com/FZx0Jql.gif
+
 ![](https://i.imgur.com/FZx0Jql.gif)
 
-Show detailed view:
-
+Show detailed view: Included within the repository because the file wasn't able to be uploaded
 
 GIF created with [Kap](https://getkap.co/).
 
