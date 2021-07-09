@@ -9,7 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class EditSettingsViewController;
+
+@protocol EditSettingsViewControllerDelegate <NSObject>
+- (void)ProfileViewController:(EditSettingsViewController *)controller finishedUpdating:(NSString *)description;
+@end
+
 @interface EditSettingsViewController : UIViewController
+
+@property (nonatomic, weak) id <EditSettingsViewControllerDelegate> delegate;
 
 @end
 

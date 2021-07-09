@@ -85,7 +85,22 @@
     if (user != nil) {
         // User found! update username label with username
         cell.username.text = user.username;
-        cell.captionField.text = [NSString stringWithFormat:@"%@: %@", user.username,  post[@"caption"]];
+        NSUInteger usernameLength = [user.username length];
+        
+//        Pull this into a different function
+        NSMutableAttributedString *caption = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", user.username,  post[@"caption"]]];
+        NSRange selectedRange = NSMakeRange(0, usernameLength);
+
+        [caption beginEditing];
+        
+        [caption addAttribute:NSFontAttributeName
+                   value:[UIFont fontWithName:@"Helvetica-Bold" size:17.0]
+                   range:selectedRange];
+
+        [caption endEditing];
+        
+        cell.captionField.attributedText = caption;
+        
     } else {
         // No user found, set default username
         // This should not be hit
@@ -112,12 +127,18 @@
         }];
     }
     
+    cell.post = post;
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Deselect the row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Navigation

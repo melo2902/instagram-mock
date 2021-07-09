@@ -11,8 +11,9 @@
 #import "Post.h"
 #import "PostCell.h"
 #import "DetailViewController.h"
+#import "EditSettingsViewController.h"
 
-@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, EditSettingsViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *numberPostsLabel;
@@ -22,10 +23,6 @@
 @end
 
 @implementation ProfileViewController
-
-- (void)viewWillAppear {
-    self.descriptionLabel.text = PFUser.currentUser[@"description"];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -106,7 +103,7 @@
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
-    self.profilePictureView.image = [self resizeImage:editedImage withSize: CGSizeMake(5, 5)];
+    self.profilePictureView.image = [self resizeImage:editedImage withSize: CGSizeMake(100, 100)];
     PFUser.currentUser[@"pfp"] = [self getPFFileFromImage:self.profilePictureView.image];
     [PFUser.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
@@ -167,6 +164,12 @@
     return self.ownPostsArray.count;
 }
 
+-(void)ProfileViewController:(EditSettingsViewController *)controller finishedUpdating:(NSString *)description {
+    
+    self.descriptionLabel.text = description;
+//    NSLog(@"This was returned from ViewControllerB %@", description);
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -177,10 +180,12 @@
         CollectionPostCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
         Post *post = self.ownPostsArray[indexPath.row];
-//        NSLog(@"%@")
         
         DetailViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.post = post;
+    } else if ([segue.identifier isEqual:@"editProfileSegue"]) {
+        EditSettingsViewController *vc = segue.destinationViewController;
+        vc.delegate = self;
     }
 }
 

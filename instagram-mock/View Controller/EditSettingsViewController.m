@@ -33,6 +33,7 @@
         }
     }];
     
+    [self.delegate ProfileViewController:self finishedUpdating:self.updateBioField.text];
     [super.navigationController popViewControllerAnimated:YES];
 }
 
