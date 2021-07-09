@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -61,11 +61,10 @@
 - (void)getPosts {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    // to make this generalizable, can't use PFUser.currentUser (will pass in the metric)
+
     [query includeKey:@"author.pfp"];
     [query whereKey:@"author" equalTo:PFUser.currentUser];
     [query orderByDescending:@"createdAt"];
-    //    query.limit = 20;
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -100,7 +99,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     self.profilePictureView.image = [self resizeImage:editedImage withSize: CGSizeMake(100, 100)];
@@ -167,7 +165,6 @@
 -(void)ProfileViewController:(EditSettingsViewController *)controller finishedUpdating:(NSString *)description {
     
     self.descriptionLabel.text = description;
-//    NSLog(@"This was returned from ViewControllerB %@", description);
 }
 
 #pragma mark - Navigation

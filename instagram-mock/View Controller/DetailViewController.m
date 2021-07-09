@@ -48,31 +48,24 @@
         }
     }];
     
-    //        Pull this into a different function
-    NSUInteger usernameLength = [user.username length];
-    
-    NSMutableAttributedString *caption = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", user.username,  self.post[@"caption"]]];
+    self.captionLabel.attributedText = [self modifyUsername:user.username withCaption:self.post[@"caption"]];
+}
+
+-(NSMutableAttributedString *)modifyUsername:(NSString *)usernameString withCaption:(NSString *)postCaption {
+    NSUInteger usernameLength = [usernameString length];
+
+    NSMutableAttributedString *caption = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", usernameString, postCaption]];
     NSRange selectedRange = NSMakeRange(0, usernameLength);
-    
+
     [caption beginEditing];
     
     [caption addAttribute:NSFontAttributeName
-                    value:[UIFont fontWithName:@"Helvetica-Bold" size:17.0]
-                    range:selectedRange];
-    
+               value:[UIFont fontWithName:@"Helvetica-Bold" size:17.0]
+               range:selectedRange];
+
     [caption endEditing];
     
-    self.captionLabel.attributedText = caption;
+    return caption;
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

@@ -6,7 +6,6 @@
 //
 
 #import "Post.h"
-//#import "InstaUser.h"
 
 @implementation Post
 @dynamic postID;
@@ -25,7 +24,6 @@
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Post *newPost = [[Post alloc] initWithClassName:@"Post"];
-//    Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
     newPost.author = PFUser.currentUser;
     newPost.caption = caption;
@@ -37,8 +35,6 @@
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
-    // check if image is not nil
     if (!image) {
         return nil;
     }
@@ -51,4 +47,5 @@
     
     return [PFFileObject fileObjectWithData:imageData];
 }
+
 @end

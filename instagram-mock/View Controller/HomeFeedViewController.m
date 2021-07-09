@@ -26,8 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view.
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -36,7 +34,6 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(getPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
-    
 }
 
 - (void)getPosts {
@@ -44,8 +41,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
     [query orderByDescending:@"createdAt"];
-    //    query.limit = 20;
-    
+   
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -62,7 +58,6 @@
 
 - (IBAction)onLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
     }];
     
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
@@ -82,31 +77,9 @@
     
     PFUser *user = post[@"author"];
     
-    if (user != nil) {
-        // User found! update username label with username
-        cell.username.text = user.username;
-        NSUInteger usernameLength = [user.username length];
-        
-//        Pull this into a different function
-        NSMutableAttributedString *caption = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", user.username,  post[@"caption"]]];
-        NSRange selectedRange = NSMakeRange(0, usernameLength);
-
-        [caption beginEditing];
-        
-        [caption addAttribute:NSFontAttributeName
-                   value:[UIFont fontWithName:@"Helvetica-Bold" size:17.0]
-                   range:selectedRange];
-
-        [caption endEditing];
-        
-        cell.captionField.attributedText = caption;
-        
-    } else {
-        // No user found, set default username
-        // This should not be hit
-        cell.username.text = @"🤖";
-        cell.captionField.text = post[@"caption"];
-    }
+    cell.username.text = user.username;
+    
+    cell.captionField.attributedText = [self modifyUsername:user.username withCaption:post[@"caption"]];
     
     PFFileObject *postPicture = post[@"image"];
     [postPicture getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
@@ -132,6 +105,24 @@
     return cell;
 }
 
+-(NSMutableAttributedString *)modifyUsername:(NSString *)usernameString withCaption:(NSString *)postCaption {
+    NSUInteger usernameLength = [usernameString length];
+
+    NSMutableAttributedString *caption = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", usernameString, postCaption]];
+    NSRange selectedRange = NSMakeRange(0, usernameLength);
+
+    [caption beginEditing];
+    
+    [caption addAttribute:NSFontAttributeName
+               value:[UIFont fontWithName:@"Helvetica-Bold" size:17.0]
+               range:selectedRange];
+
+    [caption endEditing];
+    
+    return caption;
+    
+}
+
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
@@ -145,8 +136,6 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqual:@"showDetailsSegue"]) {
         PostCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];

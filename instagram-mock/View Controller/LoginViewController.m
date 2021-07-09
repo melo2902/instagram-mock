@@ -7,7 +7,6 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
-//#import "InstaUser.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -26,11 +25,24 @@
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     
-//    [InstaUser logInWithUsernameInBackground:username password:password block:^(InstaUser * user, NSError *  error) {
-//    testing this later
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Log In Failed"
+                message:@"Check to make sure that your username and password are valid!"
+                preferredStyle:(UIAlertControllerStyleAlert)];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                style:UIAlertActionStyleDefault
+                handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+            }];
+            
         } else {
             NSLog(@"User logged in successfully");
             
@@ -42,7 +54,6 @@
 
 - (IBAction)onSignUp:(id)sender {
     // initialize a user object
-    
     PFUser *newUser = [PFUser user];
     
     // set user properties
@@ -53,6 +64,20 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Failed"
+                message:@"The username is already taken!"
+                preferredStyle:(UIAlertControllerStyleAlert)];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                style:UIAlertActionStyleDefault
+                handler:^(UIAlertAction * _Nonnull action) {
+            }];
+
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+            }];
         } else {
             NSLog(@"User registered successfully");
             
@@ -61,15 +86,5 @@
         }
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
