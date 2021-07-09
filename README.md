@@ -2,7 +2,7 @@
 
 Instagram is a photo sharing app using Parse as its backend.
 
-Time spent: **10** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -35,12 +35,15 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Show detailed view from the main feed view and the profile tab
+- [x] Allow users to update their bio description
+- [x] List the number of posts a user has posted on their profile page.
+- [x] Add alerts to the log in and sign up page incase the user registers or logs in with the wrong information
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I would like to include likes, comments, and shares in the future. I feel like that's a pivotal feature of the Instagram app.
+2. I'll like to develop a deeper understanding of delegates and protocols. I used them for the first time to sync data between the edit and profile view controller.
 
 ## Video Walkthrough
 
@@ -55,7 +58,6 @@ GIF created with [Kap](https://getkap.co/).
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
-
 
 ## Notes
 
